@@ -13,6 +13,6 @@
 # limitations under the License.
 handlers:
 - name: greeting
-- name: other_weapon
+- name: unavailable_options
 inlineCloudFunction:
   executeFunction: ActionsOnGoogleFulfillment
