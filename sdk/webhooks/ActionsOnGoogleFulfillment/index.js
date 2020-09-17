@@ -23,9 +23,9 @@ const optionsNeedA = new Set();
 optionsNeedA.add('horse').add('phone');
 
 app.handle('greeting', conv => {
-  let message = 'A wondrous greeting, adventurer! Welcome to the mythical land of  Gryffinberg! Based on your clothes, you are not from around these lands. It looks like you\'re on your way to an epic journey.';
-  if (conv.user.lastSeenTime) {
-    message = 'A wondrous greeting, adventurer! Welcome back to the mythical land of Gryffinberg!';
+  let message = 'A wondrous greeting, adventurer! Welcome back to the mythical land of Gryffinberg!';
+  if (!conv.user.lastSeenTime) {
+    message = 'Welcome to the mythical land of  Gryffinberg! Based on your clothes, you are not from around these lands. It looks like you\'re on your way to an epic journey.';
   }
   conv.add(message);
 });
