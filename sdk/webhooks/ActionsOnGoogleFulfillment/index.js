@@ -30,15 +30,13 @@ app.handle('greeting', conv => {
   conv.add(message);
 });
 
-
 app.handle('unavailable_options', conv => {
-  const option = conv.intent.params.chosenUnavailableOption.original;
+  let option = conv.intent.params.chosenUnavailableOption.original;
   const optionKey = conv.intent.params.chosenUnavailableOption.resolved;
-  let message = 'I have seen the future and ';
-  if(optionsNeedA.has(optionKey)){
-    message = message + 'a';
+  if (optionsNeedA.has(optionKey)){
+    option = `a ${option}`;
   }
-  message = message + ` ${option} will not aid you on your journey. `;
+  const message = `I have seen the future and ${option} will not aid you on your journey.`;
   conv.add(message);
 });
 
